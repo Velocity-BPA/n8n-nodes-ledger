@@ -1,0 +1,126 @@
+{
+  "name": "n8n-nodes-ledger",
+  "version": "1.0.0",
+  "description": "A comprehensive n8n community node for Ledger hardware wallet integration providing 26 resources and 200+ operations for multi-chain cryptocurrency management, transaction signing, device control, and Ledger Live integration.",
+  "license": "BUSL-1.1",
+  "author": {
+    "name": "Velocity BPA",
+    "email": "licensing@velobpa.com",
+    "url": "https://velobpa.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Velocity-BPA/n8n-nodes-ledger.git"
+  },
+  "homepage": "https://github.com/Velocity-BPA/n8n-nodes-ledger#readme",
+  "bugs": {
+    "url": "https://github.com/Velocity-BPA/n8n-nodes-ledger/issues"
+  },
+  "keywords": [
+    "n8n",
+    "n8n-community-node-package",
+    "ledger",
+    "hardware-wallet",
+    "cryptocurrency",
+    "bitcoin",
+    "ethereum",
+    "solana",
+    "blockchain",
+    "web3",
+    "defi",
+    "nft",
+    "transaction-signing",
+    "cold-storage",
+    "ledger-live",
+    "multi-chain"
+  ],
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "LICENSE",
+    "COMMERCIAL_LICENSE.md",
+    "LICENSING_FAQ.md",
+    "README.md"
+  ],
+  "n8n": {
+    "n8nNodesApiVersion": 1,
+    "credentials": [
+      "dist/credentials/LedgerDevice.credentials.js",
+      "dist/credentials/LedgerLiveApi.credentials.js",
+      "dist/credentials/LedgerNetwork.credentials.js"
+    ],
+    "nodes": [
+      "dist/nodes/Ledger/Ledger.node.js",
+      "dist/nodes/Ledger/LedgerTrigger.node.js"
+    ]
+  },
+  "scripts": {
+    "build": "tsc && gulp build:icons",
+    "dev": "tsc --watch",
+    "lint": "eslint . --ext .ts",
+    "lint:fix": "eslint . --ext .ts --fix",
+    "format": "prettier --write \"**/*.ts\"",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "clean": "rimraf dist",
+    "prepublishOnly": "npm run build",
+    "prepare": "npm run build"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "@ledgerhq/hw-transport": "^6.30.6",
+    "@ledgerhq/hw-transport-web-ble": "^6.28.6",
+    "@ledgerhq/hw-transport-webhid": "^6.28.6",
+    "@ledgerhq/hw-transport-http": "^6.31.1",
+    "@ledgerhq/hw-app-btc": "^10.4.1",
+    "@ledgerhq/hw-app-eth": "^6.38.1",
+    "@ledgerhq/hw-app-solana": "^7.2.1",
+    "@ledgerhq/hw-app-cosmos": "^6.32.10",
+    "@ledgerhq/hw-app-polkadot": "^6.34.10",
+    "@ledgerhq/hw-app-xrp": "^6.32.8",
+    "@ledgerhq/hw-app-algorand": "^6.31.10",
+    "@ledgerhq/hw-app-near": "^6.31.10",
+    "@ledgerhq/hw-app-str": "^7.2.10",
+    "@ledgerhq/hw-app-tezos": "^6.31.10",
+    "@ledgerhq/cryptoassets": "^13.3.0",
+    "@ledgerhq/devices": "^8.4.3",
+    "@ledgerhq/errors": "^6.18.0",
+    "@ledgerhq/logs": "^6.12.0",
+    "ethers": "^6.13.4",
+    "@solana/web3.js": "^1.95.4",
+    "bitcoinjs-lib": "^6.1.6",
+    "bip32": "^4.0.0",
+    "bip39": "^3.1.0",
+    "tiny-secp256k1": "^2.2.3",
+    "ws": "^8.18.0",
+    "axios": "^1.7.7"
+  },
+  "optionalDependencies": {
+    "@ledgerhq/hw-transport-node-hid": "^6.28.6"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.13",
+    "@types/node": "^22.7.5",
+    "@types/ws": "^8.5.12",
+    "@typescript-eslint/eslint-plugin": "^8.8.1",
+    "@typescript-eslint/parser": "^8.8.1",
+    "eslint": "^8.57.1",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-n8n-nodes-base": "^1.16.3",
+    "gulp": "^5.0.0",
+    "gulp-rename": "^2.0.0",
+    "jest": "^29.7.0",
+    "n8n-workflow": "^1.62.1",
+    "prettier": "^3.3.3",
+    "rimraf": "^6.0.1",
+    "ts-jest": "^29.2.5",
+    "typescript": "^5.6.3"
+  },
+  "peerDependencies": {
+    "n8n-workflow": ">=1.0.0"
+  }
+}
